@@ -1,16 +1,21 @@
-import 'package:Dart_Matchify/Dart_Matchify.dart';
+import 'package:dart_matchify/src/Dart_Matchify_base.dart';
+import 'package:dart_matchify/src/Matcher.dart';
+import 'package:dart_matchify/src/MatcherImpl.dart';
+import 'package:dart_matchify/src/LongestCommonSubsequence.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    Awesome awesome;
-
+    Pattern pattern;
+    String inputString;
     setUp(() {
-      awesome = Awesome();
+      pattern = Pattern("abcde");
+      inputString = "abcdebbnffnabcde";
+
     });
 
     test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+      expect(pattern.matches(inputString,2), isTrue);
     });
   });
 }
