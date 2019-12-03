@@ -18,7 +18,7 @@ main() {
     Pattern pattern = Pattern(patternString);
   
     //now compare testString with pattern
-    if(pattern.matches(testString, Matcher.RabinKarp)) {
+    if(pattern.matches(testString, Matcher.RABIN_KARP)) {
       print("Pattern match found!");
     } else {
       print("Pattern match not found.");
