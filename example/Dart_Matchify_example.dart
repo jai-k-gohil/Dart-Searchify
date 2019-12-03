@@ -17,4 +17,7 @@ main() {
 
   /*Note Matcher is an interface having to choose algorithm used for string matching
   in this case it uses Rabin Karp Algorithm for pattern matching */
+
+  //Additionally you can also view longest common sequence using LCS algorithm.
+  print("Longest Common subsequence between pattern and inputString using LCS is ${ pattern.longestCommonSubsequence(testString)}");
 }
