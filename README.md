@@ -30,6 +30,20 @@ main() {
     */
 }
 ```
+## About Package
+As the package provides a couple of string search algorithms some of them are listed below.
+
+| Algorithm | Processing Time | Matching time | Space |
+| :-------- | :-------------- | :------------ | :---- |
+| Naive string-search algorithm	 | none | Θ(nm)	| none|
+| Rabin–Karp algorithm | Θ(m) | average Θ(n + m),worst Θ((n−m)m)		| O(1) |
+| Knuth–Morris–Pratt algorithm	 | Θ(m) | Θ(n)	| Θ(m) |
+| Boyer–Moore string-search algorithm	 | Θ(m+k) | best Ω(n/m), worst O(mn)	| Θ(k) |
+| Two-way string-matching algorithm	 | Θ(m) | O(m+n) | O(1) |
+
+More coming soon..
+
+Intrigued and want to know more about string search click [here](https://en.wikipedia.org/wiki/String-searching_algorithm).
 
 ## Features and bugs
 
