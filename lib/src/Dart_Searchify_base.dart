@@ -1,5 +1,5 @@
-import 'package:dart_searchify/src/Matcher.dart';
-import 'package:dart_searchify/src/MatcherImpl.dart';
+import 'package:dart_searchify/src/Search.dart';
+import 'package:dart_searchify/src/SearchImpl.dart';
 import 'package:dart_searchify/src/LongestCommonSubsequence.dart';
 
 class Pattern {
@@ -8,14 +8,14 @@ class Pattern {
 
   bool matches(String inputString, int matcher) {
     switch (matcher) {
-      case Matcher.RABIN_KARP:
+      case Search.RABIN_KARP:
         List<int> positions = MatcherImpl.RabinKarpSearch(
             this.pattern, inputString, 101);
         if (positions.isEmpty) { return false; }
         else { return true; }
         break;
 
-      case Matcher.KNUTH_MORRIS:
+      case Search.KNUTH_MORRIS:
         List<int> positions = MatcherImpl.KMPSearch(
             this.pattern, inputString);
         if (positions.isEmpty) { return false; }

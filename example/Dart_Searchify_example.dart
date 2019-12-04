@@ -1,5 +1,5 @@
 import 'package:dart_searchify/src/Dart_Searchify_base.dart';
-import 'package:dart_searchify/src/Matcher.dart';
+import 'package:dart_searchify/src/Search.dart';
 
 main() {
   String patternString = "abcdef";
@@ -10,7 +10,7 @@ main() {
 
   //now compare string with testString
   print("Comparing strings using rabin karp algorithm!");
-  if(pattern.matches(testString, Matcher.RABIN_KARP)) {
+  if(pattern.matches(testString, Search.RABIN_KARP)) {
     print("Pattern match found!");
   } else {
     print("Pattern match not found.");
@@ -18,7 +18,7 @@ main() {
 
   //now compare string with testString
   print("Comparing strings using knuth morris algorithm!");
-  if(pattern.matches(testString, Matcher.KNUTH_MORRIS)) {
+  if(pattern.matches(testString, Search.KNUTH_MORRIS)) {
     print("Pattern match found.");
   } else {
     print("Pattern match not found.");
