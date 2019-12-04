@@ -9,25 +9,24 @@ class Pattern {
   bool matches(String inputString, int matcher) {
     switch (matcher) {
       case Matcher.RABIN_KARP:
-        List<int> positions = MatcherImpl.RabinKarp(
+        List<int> positions = MatcherImpl.RabinKarpSearch(
             this.pattern, inputString, 101);
-        if (positions.isEmpty) {
-          return false;
-        }
-        else {
-          return true;
-        }
+        if (positions.isEmpty) { return false; }
+        else { return true; }
         break;
+
+      case Matcher.KNUTH_MORRIS:
+        List<int> positions = MatcherImpl.KMPSearch(
+            this.pattern, inputString);
+        if (positions.isEmpty) { return false; }
+        else { return true; }
+        break;
+
       default:
-        print("Default uses Rabin karp");
-        List<int> positions = MatcherImpl.RabinKarp(
-            this.pattern, inputString, 101);
-        if (positions.isEmpty) {
-          return false;
-        }
-        else {
-          return true;
-        }
+        List<int> positions = MatcherImpl.KMPSearch(
+            this.pattern, inputString);
+        if (positions.isEmpty) { return false; }
+        else { return true; }
         break;
     }
   }

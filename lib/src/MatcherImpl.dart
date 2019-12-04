@@ -5,14 +5,16 @@
 
 class MatcherImpl{
 
-  /*    pat -> pattern
-        txt -> text
-        q -> A prime number
+  /**
+   *  Prints occurrences of txt[] in pat[] using RabinKarp Algorithm
+   *  -> pattern string
+   *  -> input string
+   *  q -> A prime number
     */
-  static List<int> RabinKarp(String pattern, String inputString, int q)
+  static List<int> RabinKarpSearch(String pattern, String inputString, int q)
   {
     //note q is a prime number for strengthening hash function
-    var positions = <int>[];
+    List<int> positions = <int>[];
     Map<String, int> mappedValues = getMappedValues();
     int patternLength = pattern.length;
     int txtLength = inputString.length;
@@ -60,10 +62,97 @@ class MatcherImpl{
     return positions;
   }
 
-/*
- * returns Map<characters,decimalRepresentation>
- * example {a:1,b:2}
- */
+
+  /**
+   *  Prints occurrences of txt[] in pat[] using Knuth Morris Prat's algorithm
+   *  -> pattern string
+   *  -> inputString
+   */
+
+  static List<int> KMPSearch(String pattern, String inputString)
+  {
+    // create lps[] that will hold the longest prefix suffix
+    // values for pattern
+    List<int> longestPrefixSuffix = new List<int>(pattern.length);
+
+    //for holding all indexes of strings matched
+    List<int> positions = <int>[];
+
+    // Preprocess the pattern (calculate lps[] array)
+    computeLPSArray(pattern, longestPrefixSuffix);
+
+    int i = 0; // index for inputString[]
+    int j = 0; // index for pat[]
+    while (i < inputString.length) {
+      if (pattern[j] == inputString[i]) {
+        j++;
+        i++;
+      }
+
+      if (j == pattern.length) {
+        print("Found pattern at index ${i - j}");
+        positions.add(i-j);
+        j = longestPrefixSuffix[j - 1];
+      }
+
+      // mismatch after j matches
+      else if (i < inputString.length && pattern[j] != inputString[i]) {
+        // Do not match lps[0..lps[j-1]] characters,
+        // they will match anyway
+        if (j != 0)
+          j = longestPrefixSuffix[j - 1];
+        else
+          i = i + 1;
+      }
+    }
+    return positions;
+  }
+
+  /**
+   *  Fills longest prefix suffix[] for given patttern pat[0..M-1] in Knuth Morris Prat's algorithm
+   *  -> pattern String
+   *  -> longestPrefixSuffix[]
+   */
+  static void computeLPSArray(String pattern, List<int> longestPrefixSuffix)
+  {
+    // length of the previous longest prefix suffix
+    int len = 0;
+
+    longestPrefixSuffix[0] = 0; // longestPrefixSuffix[0] is always 0
+
+    // the loop calculates longestPrefixSuffix[i] for i = 1 to patternLength-1
+    int i = 1;
+    while (i < pattern.length) {
+      if (pattern[i] == pattern[len]) {
+        len++;
+        longestPrefixSuffix[i] = len;
+        i++;
+      }
+      else // (pat[i] != pat[len])
+          {
+        // This is tricky. Consider the example.
+        // AAACAAAA and i = 7. The idea is similar
+        // to search step.
+        if (len != 0) {
+          len = longestPrefixSuffix[len - 1];
+
+          // Also, note that we do not increment
+          // i here
+        }
+        else // if (len == 0)
+            {
+          longestPrefixSuffix[i] = 0;
+          i++;
+        }
+      }
+    }
+  }
+
+  /**
+   *  Gets all the predetermined of mapped values for characters for Rabin Karp algorithm
+   *  returns Map<characters,decimalRepresentation>
+   *  -> example {a:1,b:2}
+   */
   static Map<String,int> getMappedValues() {
     List<int> a = new List<int>.generate(26, (int index) => index + 65);
     a.addAll(List.generate(26, (int index) => index + 97));
