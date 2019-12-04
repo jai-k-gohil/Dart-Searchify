@@ -8,7 +8,7 @@ Created from templates made available by Stagehand under a BSD-style
 A simple usage example:
 
 ```dart
-import 'package:Dart_Matchify/Dart_Matchify.dart';
+import 'package:Dart_Searchify/Dart_Searchify.dart';
 
 main() {
     String patternString = "abcdef";

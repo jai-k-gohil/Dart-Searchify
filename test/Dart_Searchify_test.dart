@@ -1,7 +1,4 @@
-import 'package:dart_matchify/src/Dart_Matchify_base.dart';
-import 'package:dart_matchify/src/Matcher.dart';
-import 'package:dart_matchify/src/MatcherImpl.dart';
-import 'package:dart_matchify/src/LongestCommonSubsequence.dart';
+import 'package:dart_searchify/src/Dart_Searchify_base.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -90,7 +90,6 @@ class MatcherImpl{
       }
 
       if (j == pattern.length) {
-        print("Found pattern at index ${i - j}");
         positions.add(i-j);
         j = longestPrefixSuffix[j - 1];
       }

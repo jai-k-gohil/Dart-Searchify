@@ -1,6 +1,6 @@
-import 'package:dart_matchify/src/Matcher.dart';
-import 'package:dart_matchify/src/MatcherImpl.dart';
-import 'package:dart_matchify/src/LongestCommonSubsequence.dart';
+import 'package:dart_searchify/src/Matcher.dart';
+import 'package:dart_searchify/src/MatcherImpl.dart';
+import 'package:dart_searchify/src/LongestCommonSubsequence.dart';
 
 class Pattern {
   String pattern = "";

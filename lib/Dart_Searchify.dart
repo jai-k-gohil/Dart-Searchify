@@ -1,9 +1,9 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library Dart_Matchify;
+library Dart_Searchify;
 
-export 'src/Dart_Matchify_base.dart';
+export 'src/Dart_Searchify_base.dart';
 export 'src/Matcher.dart';
 export 'src/MatcherImpl.dart';
 export 'src/LongestCommonSubsequence.dart';

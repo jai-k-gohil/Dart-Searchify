@@ -1,8 +1,8 @@
-name: dart_matchify
-description: A new dart package that provides with  implementations of various string matching algorithm.
- version: 1.0.0
- homepage: https://github.com/jai-k-gohil/Dart-Matchify
- author: jaikishorgohil <jai.k.gohil@gmail.com>
+name: dart_searchify
+description: A new dart package that provides with  implementations of various string searching algorithm.
+version: 1.0.0
+homepage: https://github.com/jai-k-gohil/Dart-Searchify
+author: jaikishorgohil <jai.k.gohil@gmail.com>
 
 environment:
   sdk: '>=2.5.0 <3.0.0'
