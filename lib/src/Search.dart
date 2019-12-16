@@ -5,7 +5,7 @@
 */
 
 class Search {
-  static const int NAIVE = 1;
+  static const int NAIVE_SEARCH = 1;
   static const int RABIN_KARP = 2;
   static const int KNUTH_MORRIS = 3;
 }

@@ -24,6 +24,14 @@ main() {
     print("Pattern match not found.");
   }
 
+  //now compare string with testString
+  print("Comparing strings using knuth morris algorithm!");
+  if(pattern.matches(testString, Search.NAIVE_SEARCH)) {
+    print("Pattern match found.");
+  } else {
+    print("Pattern match not found.");
+  }
+
   /*Note Matcher is an interface having to choose algorithm used for string matching
   in this case it defaults to Knuth Morris algorithm for pattern matching */
 

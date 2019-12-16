@@ -6,12 +6,40 @@
 class MatcherImpl{
 
   /**
+   *  Prints occurrences of txt[] in pat[] using naive searching approach
+   *  -> pattern string
+   *  -> input string
+   */
+  static List<int> naiveSearch(String pattern, String inputString)
+  {
+    List<int> positions = <int>[];
+    int M = pattern.length;
+    int N = inputString.length;
+
+    /* A loop to slide pattern one by one */
+    for (int i = 0; i <= N - M; i++) {
+
+      int j;
+
+      /* For current index i, check for pattern
+              match */
+      for (j = 0; j < M; j++) {
+        if (inputString[i + j] != pattern[j])
+          break;
+      }
+
+      if (j == M) // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+        positions.add(i);
+    }
+    return positions;
+  }
+  /**
    *  Prints occurrences of txt[] in pat[] using RabinKarp Algorithm
    *  -> pattern string
    *  -> input string
    *  q -> A prime number
     */
-  static List<int> RabinKarpSearch(String pattern, String inputString, int q)
+  static List<int> rabinKarpSearch(String pattern, String inputString, int q)
   {
     //note q is a prime number for strengthening hash function
     List<int> positions = <int>[];
@@ -69,7 +97,7 @@ class MatcherImpl{
    *  -> inputString
    */
 
-  static List<int> KMPSearch(String pattern, String inputString)
+  static List<int> kmpSearch(String pattern, String inputString)
   {
     // create lps[] that will hold the longest prefix suffix
     // values for pattern
